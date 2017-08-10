@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LinhNguyen.Domain", "LinhNg
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LinhNguyen.Common", "LinhNguyen.Common\LinhNguyen.Common.csproj", "{4C662C0A-0B33-4EC8-A872-B9863B9812DA}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LinhNguyen.Resources", "LinhNguyen.Resources\LinhNguyen.Resources.csproj", "{8033D015-C368-424D-8EDF-8C72379DD434}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{4C662C0A-0B33-4EC8-A872-B9863B9812DA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4C662C0A-0B33-4EC8-A872-B9863B9812DA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4C662C0A-0B33-4EC8-A872-B9863B9812DA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8033D015-C368-424D-8EDF-8C72379DD434}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8033D015-C368-424D-8EDF-8C72379DD434}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8033D015-C368-424D-8EDF-8C72379DD434}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8033D015-C368-424D-8EDF-8C72379DD434}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

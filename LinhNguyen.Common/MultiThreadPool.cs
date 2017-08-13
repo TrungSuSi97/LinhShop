@@ -24,7 +24,25 @@ namespace LinhNguyen.Common
 
         public void Dispose()
         {
-            throw new NotImplementedException();
+            var waitForThreads = false;
+            lock (this._task)
+            {
+                if (!this._disposed)
+                {
+                    GC.SuppressFinalize(this);
+                    // wait for all tasks to finish processing while not allowing any more new tasks
+                    this._disallowAdd = true;
+                    while (this._task.Count >0)
+                    {
+                        Monitor.Wait(this._task);
+                    }
+
+                    this._disposed = true;
+                    // wake all workers (none of them will be active at this point; 
+                    //disposed flag will cause then to finish so that we can join them)
+                    Monitor.PulseAll(this._task);
+                }
+            }
         }
 
         public void QueueTask(Action task)

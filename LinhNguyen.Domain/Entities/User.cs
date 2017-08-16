@@ -37,8 +37,6 @@ namespace LinhNguyen.Domain.Entities
         public virtual string SelectedTheme { get; set; }
         public virtual string SelectedAccent { get; set; }
         public virtual byte[] Image { get; set; }
-        public virtual string ImageType { get; set; }
-
-        // Linh Nguyen
+        public virtual string ImageType { get; set; }       
     }
 }

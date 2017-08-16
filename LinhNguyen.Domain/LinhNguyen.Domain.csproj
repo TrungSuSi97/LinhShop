@@ -69,10 +69,19 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DAL\MainContext.cs" />
+    <Compile Include="Entities\BaseClass.cs" />
+    <Compile Include="Entities\Order.cs" />
+    <Compile Include="Entities\OrderDetail.cs" />
+    <Compile Include="Entities\Product.cs" />
     <Compile Include="Entities\User.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\LinhNguyen.Common\LinhNguyen.Common.csproj">
+      <Project>{4c662c0a-0b33-4ec8-a872-b9863b9812da}</Project>
+      <Name>LinhNguyen.Common</Name>
+    </ProjectReference>
+  </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />

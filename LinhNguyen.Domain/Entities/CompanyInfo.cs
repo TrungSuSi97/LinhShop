@@ -21,7 +21,7 @@ namespace LinhNguyen.Domain.Entities
         public string Email { get; set; }
         public string HotLine { get; set; }
         public string Title { get; set; }
-        public string DateToChangeProduct { get; set; }
+        public int DateToChangeProduct { get; set; }
         public decimal FreeToDelivery { get; set; }
         public string Copyright { get; set; }
         public string PathImagePaymentMethod { get; set; }

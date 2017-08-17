@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace LinhNguyen.Payment
+namespace LinhNguyen.Infrastructure.Repositories
 {
-    public class BraintreeConfiguration
+    class CategoryRepository
     {
     }
 }

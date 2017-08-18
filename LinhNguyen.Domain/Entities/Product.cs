@@ -15,6 +15,7 @@ namespace LinhNguyen.Domain.Entities
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public virtual long ProductId { get; set; }
+        public virtual string ProductName { get; set; }
         public virtual string Code { get; set; }
         public virtual string ImagePath1 { get; set; }
         public virtual string ImagePath2 { get; set; }

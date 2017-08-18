@@ -6,7 +6,13 @@ using System.Threading.Tasks;
 
 namespace LinhNguyen.Infrastructure.Models
 {
-    class ReturnHtmlModel
+    public class ReturnHtmlModel
     {
+        public ReturnHtmlModel()
+        {
+        }
+
+        public int Status { get; set; }
+        public string ViewString { get; set; }
     }
 }

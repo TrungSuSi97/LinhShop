@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace LinhNguyen.Infrastructure.Repositories
 {
-    class UserRepository
+    public class UserRepository
     {
     }
 }

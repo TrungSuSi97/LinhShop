@@ -23,7 +23,7 @@ namespace LinhNguyen.Domain.Entities
         public User User { get; set; }
         public bool IsCharged { get; set; }
         public string CodeDiscount { get; set; }
-        public string Discount { get; set; }
+        public decimal Discount { get; set; }
         public decimal TotalMoney { get; set; }
         public int Quantity { get; set; }
         public int PointUsed { get; set; }

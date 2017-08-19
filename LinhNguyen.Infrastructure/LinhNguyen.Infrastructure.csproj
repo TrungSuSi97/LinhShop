@@ -72,6 +72,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="IRepositories\ICategoryRepository.cs" />
+    <Compile Include="IRepositories\ICompanyInfoRepository.cs" />
+    <Compile Include="IRepositories\ICouponsRepository.cs" />
+    <Compile Include="IRepositories\INewsRepository.cs" />
+    <Compile Include="IRepositories\IOrderRepository.cs" />
+    <Compile Include="IRepositories\IProductRepository.cs" />
+    <Compile Include="IRepositories\IResourceRepository.cs" />
+    <Compile Include="IRepositories\ISlideShowRepository.cs" />
     <Compile Include="IRepositories\IUserRepository.cs" />
     <Compile Include="Models\BaseModel.cs" />
     <Compile Include="Models\CategoryModel.cs" />

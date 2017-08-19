@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 namespace LinhNguyen.Infrastructure.Models
 {
     public class LoginModel
-    {
+    {      
         [Required(ErrorMessageResourceType = typeof(Resources.Resources),
                  ErrorMessageResourceName = "TxtEmailRequired")]
         [Display(Name = "TxtEmailOrUsername", ResourceType = typeof(Resources.Resources))]

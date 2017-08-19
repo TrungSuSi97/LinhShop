@@ -1,4 +1,5 @@
-﻿using LinhNguyen.Infrastructure.Models;
+﻿using LinhNguyen.Domain.Entities;
+using LinhNguyen.Infrastructure.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,11 +10,16 @@ namespace LinhNguyen.Infrastructure.IRepositories
 {
     public interface IUserRepository
     {
-        IQueryable<UserModel> GetAllUser();
-        bool InsertUser(UserModel model);
-        bool UpdateUser(UserModel model);
-        void DeleteUser(int id);
-        
-
+        bool DoRegister(UserModel model);
+        UserModel DoLogin(LoginModel model);
+        IQueryable<UserModel> GetListUser();
+        IQueryable<UserModel> GetListUserAll();
+        bool InsertOrUpdate(UserModel model);
+        bool Delete(int id);
+        bool AddContact(ContactUsModel model);
+        bool UpdatePoint(long id, int diem);
+        UserModel DoLoginAdmin(LoginModel model);
+        User GetUserById(int id);
+        User GetUserbyUserName(string username);
     }
 }

@@ -20,6 +20,7 @@ namespace LinhNguyen.Infrastructure.Models
         [Display(Name = "TxtFullName", ResourceType = typeof(LinhNguyen.Resources.Resources))]
         public string FullName { get; set; }
 
+
         [Display(Name = "TxtUserEmail", ResourceType = typeof(LinhNguyen.Resources.Resources))]
         [RegularExpression(".+@.+\\..+", ErrorMessageResourceType = typeof(Resources.Resources),
                                          ErrorMessageResourceName = "TxtEmailInvalid")]

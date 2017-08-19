@@ -12,7 +12,7 @@ namespace LinhNguyen.Domain.Entities
         public virtual bool IsDeleted { get; set; }
         public virtual string LastModifiedBy { get; set; }
         public virtual string CreateBy { get; set; }
-        public virtual string ModifyDate { get; set; }
+        public virtual DateTime ModifyDate { get; set; }
         public virtual string Error { get { return null; } }
     }
 }

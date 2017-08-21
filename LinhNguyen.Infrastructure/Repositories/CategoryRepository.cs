@@ -42,9 +42,19 @@ namespace LinhNguyen.Infrastructure.Repositories
         {
             try
             {
-
+                return _context.Categories.Where(x => x.IsDeleted == false)
+                    .Select(x => new CategoryModel
+                    {
+                        Id = x.Id,
+                        CategoryName = x.CategoryName,
+                        Type = x.Type,
+                        CreatedDate = x.CreatedDate,
+                        CreateBy = x.CreateBy,
+                        ImagePic = x.ImagePic,
+                        ImageType = x.ImageType
+                    });
             }
-            catch (Exception)
+            catch (Exception ex)
             {
 
                 throw;
@@ -63,6 +73,18 @@ namespace LinhNguyen.Infrastructure.Repositories
                     existedCategory.CategoryName = categoryModel.CategoryName;
                     existedCategory.Type = categoryModel.Type;
                     existedCategory.LastModifiedBy = categoryModel.LastModifiedBy;
+
+                    if (categoryModel.Image != null)
+                    {
+                        //get the file's name
+                        var type = categoryModel.Image.ContentType;
+                        //get the bytes from the content stream of the file
+                        var thePictureAsBytes = new byte[categoryModel.Image.ContentLength];
+                        using (BinaryRea)
+                        {
+
+                        }
+                    }
                 }
             }
             catch (Exception)

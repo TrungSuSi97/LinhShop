@@ -24,7 +24,7 @@ namespace LinhNguyen.Infrastructure.Models
         [Display(Name = "Image")]
         public HttpPostedFileBase Image { get; set; }
 
-        public byte[] Images { get; set; }
+        public byte[] ImagePic { get; set; }
 
         public string ImageType { get; set; }
     }

@@ -20,7 +20,7 @@ namespace LinhNguyen.Domain.Entities
         public string CategoryName { get; set; }
         public ICollection<Product> ProductList { get; set; }
         public CategoryType Type { get; set; }
-        public byte[] Image { get; set; }
+        public byte[] ImagePic { get; set; }
         public string ImageType { get; set; }
     }
 }

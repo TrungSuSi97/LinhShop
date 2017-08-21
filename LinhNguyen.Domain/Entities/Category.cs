@@ -1,4 +1,5 @@
-﻿using System;
+﻿using LinhNguyen.Common;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
@@ -18,7 +19,7 @@ namespace LinhNguyen.Domain.Entities
         [Remote("IsCategoryNameExist", "Admin", ErrorMessage = "Category Name already exist")]
         public string CategoryName { get; set; }
         public ICollection<Product> ProductList { get; set; }
-        public Category Type { get; set; }
+        public CategoryType Type { get; set; }
         public byte[] Image { get; set; }
         public string ImageType { get; set; }
     }

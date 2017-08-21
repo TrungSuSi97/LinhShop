@@ -11,6 +11,7 @@ using LinhNguyen.Common;
 using System.IO;
 using System.Web;
 using System.Data.Entity;
+using System.Web.Configuration;
 
 namespace LinhNguyen.Infrastructure.Repositories
 {
@@ -299,19 +300,74 @@ namespace LinhNguyen.Infrastructure.Repositories
                 }
                 else
                 {
+                    string imagePath = "";
+                    if (model.FileImage != null)
+                    {
+                        // delete existing image 
+                        if (File.Exists(HttpContext.Current.Server.MapPath(existingUser.ImagePath)))
+                        {
+                            File.Delete(HttpContext.Current.Server.MapPath(existingUser.ImagePath));
+                        }
 
+                        model.FileImage.SaveAs(HttpContext.Current.Server.MapPath(path + model.FileImage.FileName));
+                        imagePath = path + model.FileImage.FileName;
+                    }
+                    else
+                    {
+                        imagePath = "~/images/user/user.png";
+                    }
+
+                    string pass = WebConfigurationManager.AppSettings["DefaultPass"].ToString();
+
+                    if (string.IsNullOrEmpty(pass))
+                    {
+                        pass = "user@123";
+                    }
+
+                    var userEntity = new User
+                    {
+                        UserName = model.UserName,
+                        FullName = model.FullName,
+                        Address = model.Address,
+                        Address1 = model.Address1,
+                        Password = model.Password,
+                        ConfirmPassword = model.ConfirmPassword,
+                        DateOfBirth = model.DateOfBirth,
+                        Role = model.Role,
+                        PhoneNumber = model.PhoneNumber,
+                        IsActive = true,
+                        ImagePath = model.ImagePath,
+                        Point = model.Point,
+                        CreatedDate = model.CreatedDate,
+                        CreateBy = model.CreateBy
+                    };
+                    _context.Users.Add(userEntity);
                 }
+
+                return _context.SaveChanges() > 0;
             }
-            catch (Exception)
+            catch (Exception ex )
             {
 
-                throw;
+                throw ex;
             }
         }
 
-        public bool UpdatePoint(long id, int diem)
+        public bool UpdatePoint(long id, int pointInput)
         {
-            throw new NotImplementedException();
+            try
+            {
+                var user = _context.Users.Where(x => x.Id == id).FirstOrDefault();
+                user.Point += pointInput;
+                _context.Entry(user).State = EntityState.Modified;
+
+                return _context.SaveChanges() > 0;
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
         }
     }
 }

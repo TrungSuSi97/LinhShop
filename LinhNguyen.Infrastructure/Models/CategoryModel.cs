@@ -16,7 +16,7 @@ namespace LinhNguyen.Infrastructure.Models
         [Remote("IsCategoryNameExist", "Admin", ErrorMessage = "Category Name already exist")]
         [Required]
         [Display(Name = "Category name")]
-        public string Menu { get; set; }
+        public string CategoryName { get; set; }
         [Required]
         [Display(Name = "Category type")]
         public CategoryType Type { get; set; }

@@ -6,6 +6,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using LinhNguyen.Infrastructure.Models;
+using System.IO;
+using System.Data.Entity;
+using LinhNguyen.Domain.Entities;
 
 namespace LinhNguyen.Infrastructure.Repositories
 {
@@ -80,12 +83,41 @@ namespace LinhNguyen.Infrastructure.Repositories
                         var type = categoryModel.Image.ContentType;
                         //get the bytes from the content stream of the file
                         var thePictureAsBytes = new byte[categoryModel.Image.ContentLength];
-                        using (BinaryRea)
+                        using (BinaryReader theReader = new BinaryReader(categoryModel.Image.InputStream))
                         {
-
+                            thePictureAsBytes = theReader.ReadBytes(categoryModel.Image.ContentLength);
                         }
+                        existedCategory.ImagePic = thePictureAsBytes;
+                        existedCategory.ImageType = type;
                     }
+
+                    _context.Entry(existedCategory).State = EntityState.Modified;
                 }
+                else
+                {
+                    //get the file's name
+                    string type = categoryModel.Image.ContentType;
+                    //get the bytes from the content stream of the file
+                    byte[] thePictureAsBytes = new byte[categoryModel.Image.ContentLength];
+                    using (BinaryReader theReader = new BinaryReader(categoryModel.Image.InputStream))
+                    {
+                        thePictureAsBytes = theReader.ReadBytes(categoryModel.Image.ContentLength);
+                    }
+
+                    var categoryEnity = new Category
+                    {
+                        CreatedDate = DateTime.Now,
+                        CreateBy = categoryModel.CreateBy,
+                        Type = categoryModel.Type,
+                        CategoryName = categoryModel.CategoryName,
+                        ImagePic = categoryModel.ImagePic,
+                        ImageType = type
+                    };
+
+                    _context.Categories.Add(categoryEnity);
+                }
+
+                return _context.SaveChanges() > 0;
             }
             catch (Exception)
             {
@@ -96,7 +128,17 @@ namespace LinhNguyen.Infrastructure.Repositories
 
         public bool IsCategoryNameExist(string model)
         {
-            throw new NotImplementedException();
+            try
+            {
+                var existingCategoryName = _context.Categories.Where(x => x.CategoryName.ToLowerInvariant().Equals(model.ToLower())).FirstOrDefault() != null;
+
+                return existingCategoryName;
+            }
+            catch (Exception ex)
+            {
+
+                throw;
+            }
         }
     }
 }

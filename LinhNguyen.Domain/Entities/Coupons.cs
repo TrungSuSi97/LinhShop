@@ -18,8 +18,8 @@ namespace LinhNguyen.Domain.Entities
         public string Reason { get; set; }
         public DateTime FromDate { get; set; }
         public DateTime ToDate { get; set; }
-        public string UserNames { get; set; }
-        public string Emails { get; set; }
+        public string UserName { get; set; }
+        public string Email { get; set; }
         public bool SendEmail { get; set; }
         public int DiscountPercent { get; set; }
     }

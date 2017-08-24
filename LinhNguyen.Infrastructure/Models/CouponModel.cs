@@ -17,7 +17,7 @@ namespace LinhNguyen.Infrastructure.Models
         public DateTime FromDate { get; set; }
         public DateTime ToDate { get; set; }
         public string UserName { get; set; }
-        public string Emails { get; set; }
+        public string Email { get; set; }
         public bool SendEmail { get; set; }
         [Required]
         public int DiscountPercent { get; set; }

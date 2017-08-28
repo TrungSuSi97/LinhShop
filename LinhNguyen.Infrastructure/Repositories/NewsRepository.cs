@@ -6,6 +6,10 @@ using System.Text;
 using System.Threading.Tasks;
 using LinhNguyen.Infrastructure.Models;
 using LinhNguyen.Domain;
+using System.IO;
+using System.Web;
+using System.Data.Entity;
+using LinhNguyen.Domain.Entities;
 
 namespace LinhNguyen.Infrastructure.Repositories
 {
@@ -53,7 +57,54 @@ namespace LinhNguyen.Infrastructure.Repositories
             if (existedNews != null)
             {
                 existedNews.Title = newsModel.Title;
+                existedNews.CreateBy = newsModel.CreateBy;
+                existedNews.LastModifiedBy = newsModel.LastModifiedBy;
+                existedNews.Paragraph = newsModel.Paragraph;
+                existedNews.Content = newsModel.Content;
+                if (newsModel.Image != null)
+                {
+                    // delete existing image 
+                    if (File.Exists(HttpContext.Current.Server.MapPath(existedNews.ImagePath)))
+                    {
+                        File.Delete(HttpContext.Current.Server.MapPath(existedNews.ImagePath));
+                    }
+
+                    newsModel.Image.SaveAs(HttpContext.Current.Server.MapPath(path + newsModel.Image.FileName));
+                    existedNews.ImagePath = path + newsModel.Image.FileName;
+                }
+                _context.Entry(existedNews).State = EntityState.Modified;
             }
+            else
+            {
+                var newsEntity = new News
+                {
+                    Title = newsModel.Title,
+                    Content = newsModel.Content,
+                    CreatedDate = newsModel.CreatedDate,
+                    CreateBy = newsModel.CreateBy,
+                    ImagePath = path + newsModel.Image.FileName,
+                    LastModifiedBy = newsModel.LastModifiedBy,
+                    Paragraph = newsModel.Paragraph
+                };
+
+                if (newsModel.Image != null)
+                {
+                    // delete existing image 
+                    if (File.Exists(HttpContext.Current.Server.MapPath(path + newsModel.Image.FileName)))
+                    {
+                        newsEntity.ImagePath = path + newsModel.Image.FileName;
+                    }
+                    else
+                    {
+                        newsModel.Image.SaveAs(HttpContext.Current.Server.MapPath(path + newsModel.Image.FileName));
+                        newsEntity.ImagePath = path + newsModel.Image.FileName;
+                    }
+                }
+
+                _context.News.Add(newsEntity);
+            }
+
+            return _context.SaveChanges() > 0;
         }
     }
 }

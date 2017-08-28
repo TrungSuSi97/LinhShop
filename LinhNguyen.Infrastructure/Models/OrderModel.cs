@@ -25,8 +25,8 @@ namespace LinhNguyen.Infrastructure.Models
         public decimal TotalMoney { get; set; }
         public string CodeDiscount { get; set; }
         public int Quantity { get; set; }
-        public int DiemDaDung { get; set; }
-        public int TongDiem { get; set; }
+        public int PointUsed { get; set; }
+        public int TotalPoint { get; set; }
         public string ShipTo { get; set; }
         public bool IsSendToGhn { get; set; }
         public int ServiceId { get; set; }

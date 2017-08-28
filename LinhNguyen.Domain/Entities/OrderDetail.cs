@@ -18,7 +18,7 @@ namespace LinhNguyen.Domain.Entities
         public long OrderId { get; set; }
         public Product Product { get; set; }
         public Order Order { get; set; }
-        public decimal TotalBill { get; set; }
+        public decimal TotalMoney { get; set; }
         public int Quantity { get; set; }
     }
 }

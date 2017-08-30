@@ -249,8 +249,13 @@ namespace LinhNguyen.Infrastructure.Repositories
             var existedOrder = _context.Orders.Where(x => x.Id == model.Id).FirstOrDefault();
             if (existedOrder != null )
             {
-
+                existedOrder.IsCharged = model.IsCharge;
+                existedOrder.IsSendToGhn = model.IsSendToGhn;
+                existedOrder.GhnTotalFee = model.GhnTotalFee;
+                _context.Entry(existedOrder).State = EntityState.Modified;
+                return _context.SaveChanges() > 0;
             }
+            return false;
         }
     }
 }

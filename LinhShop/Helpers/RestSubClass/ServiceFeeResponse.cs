@@ -8,6 +8,6 @@ namespace LinhShop.Helpers.RestSubClass
     [Serializable]
     public class ServiceFeeResponse
     {
-
+        public List<ServicesFeeInfo> Items { get; set; }
     }
 }

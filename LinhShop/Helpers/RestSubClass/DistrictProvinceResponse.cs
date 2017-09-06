@@ -5,7 +5,9 @@ using System.Web;
 
 namespace LinhShop.Helpers.RestSubClass
 {
+    [Serializable]
     public class DistrictProvinceResponse
     {
+        public List<DistrictProvinceInfo> Data { get; set; }
     }
 }

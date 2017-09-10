@@ -27,6 +27,7 @@
     </NuGetPackageImportStamp>
     <TargetFrameworkProfile />
     <WebGreaseLibPath>..\packages\WebGrease.1.5.2\lib</WebGreaseLibPath>
+    <Use64BitIISExpress />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -349,8 +350,15 @@
     <Content Include="ckeditor\plugins\a11yhelp\dialogs\lang\zh-cn.js" />
     <Content Include="ckeditor\plugins\a11yhelp\dialogs\lang\zh.js" />
     <Content Include="ckeditor\plugins\a11yhelp\dialogs\lang\_translationstatus.txt" />
+    <Content Include="ckeditor\plugins\about\dialogs\about.js" />
+    <Content Include="ckeditor\plugins\about\dialogs\hidpi\logo_ckeditor.png" />
+    <Content Include="ckeditor\plugins\about\dialogs\logo_ckeditor.png" />
+    <Content Include="ckeditor\plugins\clipboard\dialogs\paste.js" />
+    <Content Include="ckeditor\plugins\dialog\dialogDefinition.js" />
     <Content Include="ckeditor\plugins\icons.png" />
     <Content Include="ckeditor\plugins\icons_hidpi.png" />
+    <Content Include="ckeditor\plugins\image\dialogs\image.js" />
+    <Content Include="ckeditor\plugins\image\images\noimage.png" />
     <Content Include="ckeditor\styles.js" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
@@ -713,10 +721,14 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="ckeditor\plugins\about\" />
-    <Folder Include="ckeditor\plugins\clipboard\" />
-    <Folder Include="ckeditor\plugins\dialog\" />
-    <Folder Include="ckeditor\plugins\image\" />
+    <Folder Include="ckeditor\plugins\link\dialogs\" />
+    <Folder Include="ckeditor\plugins\magicline\" />
+    <Folder Include="ckeditor\plugins\pastefromword\" />
+    <Folder Include="ckeditor\plugins\scayt\" />
+    <Folder Include="ckeditor\plugins\specialchar\" />
+    <Folder Include="ckeditor\plugins\tabletools\" />
+    <Folder Include="ckeditor\plugins\table\" />
+    <Folder Include="ckeditor\plugins\wsc\" />
     <Folder Include="ckeditor\samples\" />
     <Folder Include="ckeditor\skins\" />
     <Folder Include="Models\" />

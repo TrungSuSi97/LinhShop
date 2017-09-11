@@ -430,7 +430,15 @@
     <Content Include="ckeditor\plugins\wsc\dialogs\wsc.css" />
     <Content Include="ckeditor\plugins\wsc\dialogs\wsc.js" />
     <Content Include="ckeditor\plugins\wsc\dialogs\wsc_ie.js" />
+    <Content Include="ckeditor\samples\css\samples.css" />
+    <Content Include="ckeditor\samples\img\github-top.png" />
+    <Content Include="ckeditor\samples\img\header-bg.png" />
+    <Content Include="ckeditor\samples\img\header-separator.png" />
+    <Content Include="ckeditor\samples\img\logo.png" />
+    <Content Include="ckeditor\samples\img\navigation-tip.png" />
     <Content Include="ckeditor\samples\index.html" />
+    <Content Include="ckeditor\samples\js\sample.js" />
+    <Content Include="ckeditor\samples\js\sf.js" />
     <Content Include="ckeditor\styles.js" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
@@ -798,6 +806,8 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="ckeditor\samples\old\" />
+    <Folder Include="ckeditor\samples\toolbarconfigurator\" />
     <Folder Include="ckeditor\skins\" />
     <Folder Include="Models\" />
     <Folder Include="Views\Admin\" />
